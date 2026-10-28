@@ -9,6 +9,20 @@ app.set('view engine', 'ejs');
 
 const assetsPath = path.join(__dirname, 'public');
 app.use(express.static(assetsPath));
+app.use(express.urlencoded({ extended: true }));
+
+const messages = [
+    {
+        text: "Hi there!",
+        user: "Sagi",
+        added: new Date()
+    },
+    {
+        text: "Hello World!",
+        user: "Nana",
+        added: new Date()
+    }
+]
 
 const links = [
     { href: '/', text: 'Home' },
