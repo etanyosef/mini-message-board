@@ -37,6 +37,14 @@ app.get('/new', (req, res) => {
     res.render('pages/form', { pageTitle: 'New Message', links } );
 });
 
+app.post('/new', (req, res) => {
+    const messageText = req.body.messageText;
+    const messageUser = req.body.messageUser;
+    
+    messages.push({ text: messageText, user: messageUser, added: new Date() });
+    res.redirect('/');
+})
+
 app.listen(PORT, (error) => {
     if (error) {
         throw error;
