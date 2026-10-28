@@ -9,7 +9,7 @@
                 <div class="message">
                     <div class="message-head">
                         <span class="user"><%= message.user %></span>
-                        <span class="date"><%= message.added.toDateString() %></span>
+                        <span class="date"><%= message.added.toLocaleString('en-US') %></span>
                     </div>
                     <div class="message-text"><%= message.text %></div>
                 </div>
