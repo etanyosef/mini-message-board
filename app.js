@@ -30,11 +30,11 @@ const links = [
 ]
 
 app.get('/', (req, res) => {
-    res.render('pages/index', { pageTitle: 'Home', links });
+    res.render('pages/index', { pageTitle: 'Mini Messageboard', links, messages });
 });
 
 app.get('/new', (req, res) => {
-    res.render('pages/new', { pageTitle: 'New Message', links } );
+    res.render('pages/form', { pageTitle: 'New Message', links } );
 });
 
 app.listen(PORT, (error) => {
