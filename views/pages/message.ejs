@@ -2,18 +2,20 @@
 
 <main>
     <div class="container">
-        <a href="/">&larr; Go back</a>
+        <a href="/" class="go-back-btn">&larr; Go back</a>
 
         <div class="message">
             <div class="message-head">
-                <%= message.user %>
+                <span class="user">
+                    <%= message.user %>
+                </span>
+                <span class="date">
+                    <%= message.added.toLocaleString('en-US') %>
+                </span>
             </div>
             <p>
                 <%= message.text %>
             </p>
-            <span>
-                <%= message.added.toLocaleString('en-US') %>
-            </span>
         </div>
     </div>
 </main>
