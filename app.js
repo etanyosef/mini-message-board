@@ -50,7 +50,22 @@ app.post('/new', (req, res) => {
     
     messages.push({ id: randomUUID(), text: messageText, user: messageUser, added: new Date() });
     res.redirect('/');
-})
+});
+
+app.get('/message/:messageId', async (req, res) => {
+    const { messageId } = req.params;
+
+    console.log(req.params)
+
+    const message = await getMessageById(messageId);
+
+    if (!message) {
+        res.status(404).send('Message not found')
+        return;
+    }
+
+    res.render('pages/message', { pageTitle: message.text, links, message });
+});
 
 app.listen(PORT, (error) => {
     if (error) {
