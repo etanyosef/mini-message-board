@@ -18,6 +18,7 @@ main {
 
 footer {
     text-align: center;
+    padding: 1rem 0;
 }
 
 .container {
@@ -106,5 +107,14 @@ header .site-title a {
     transition: 300ms ease-in-out;
 }
 .message > .message-link a:hover {
+    text-decoration: underline;
+}
+
+.go-back-btn {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+.go-back-btn:hover {
     text-decoration: underline;
 }
