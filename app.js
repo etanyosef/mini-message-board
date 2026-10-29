@@ -25,19 +25,19 @@ const messages = [
         user: "Nana",
         added: new Date()
     }
-]
+];
 
 async function getMessageById(messageId) {
     return messages.find(message => message.id === messageId);
 }
 
 const links = [
-    { href: '/', text: 'Home' },
+    // { href: '/', text: 'Home' },
     { href: '/new', text: 'New Message' },
 ]
 
 app.get('/', (req, res) => {
-    res.render('pages/index', { pageTitle: 'Mini Messageboard', links, messages });
+    res.render('pages/index', { pageTitle: 'Messages', links, messages });
 });
 
 app.get('/new', (req, res) => {
