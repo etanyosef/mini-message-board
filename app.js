@@ -48,7 +48,7 @@ app.post('/new', (req, res) => {
     const messageText = req.body.messageText;
     const messageUser = req.body.messageUser;
     
-    messages.push({ text: messageText, user: messageUser, added: new Date() });
+    messages.push({ id: randomUUID(), text: messageText, user: messageUser, added: new Date() });
     res.redirect('/');
 })
 
