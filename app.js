@@ -27,6 +27,10 @@ const messages = [
     }
 ]
 
+async function getMessageById(messageId) {
+    return messages.find(message => message.id === messageId);
+}
+
 const links = [
     { href: '/', text: 'Home' },
     { href: '/new', text: 'New Message' },
