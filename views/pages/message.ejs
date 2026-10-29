@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<main>
+    <div class="container">
+        <a href="/">&larr; Go back</a>
+
+        <div class="message">
+            <div>
+                <%= message.user %>
+            </div>
+            <p>
+                <%= message.text %>
+            </p>
+            <span>
+                <%= message.added.toLocaleString('en-US') %>
+            </span>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
