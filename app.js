@@ -1,4 +1,5 @@
 const express = require('express');
+const { randomUUID } = require('node:crypto');
 const path = require('node:path');
 
 const app = express();
@@ -13,11 +14,13 @@ app.use(express.urlencoded({ extended: true }));
 
 const messages = [
     {
+        id: randomUUID(),
         text: "Hi there!",
         user: "Sagi",
         added: new Date()
     },
     {
+        id: randomUUID(),
         text: "Hello World!",
         user: "Nana",
         added: new Date()
