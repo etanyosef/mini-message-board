@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <main>
-    <div class="content">
+    <div class="container">
         <h2><%= pageTitle %></h2>
 
         <div class="message-board">
@@ -12,7 +12,7 @@
                         <span class="date"><%= message.added.toLocaleString('en-US') %></span>
                     </div>
                     <div class="message-text"><%= message.text %></div>
-                    <div>
+                    <div class="message-link">
                         <a href="/message/<%= message.id %>">Open &rarr;</a>
                     </div>
                 </div>
