@@ -2,20 +2,20 @@
 
 <main>
     <div class="container">
-        <h2><%= pageTitle %></h2>
+        <h1><%= pageTitle %></h1>
 
         <form method="POST" action="/new">
             <label>
-                <span>User:</span>
+                <span>User</span>
                 <input type="text" name="messageUser">
             </label>
 
             <label>
-                <span>Message:</span>
-                <input type="text" name="messageText">
+                <span>Message</span>
+                <textarea name="messageText" rows="5"></textarea>
             </label>
 
-            <button type="submit">Send</button>
+            <button type="submit">Send Message &#10148;</button>
         </form>
     </div>
 </main>
