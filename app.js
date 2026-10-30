@@ -64,7 +64,7 @@ app.get('/message/:messageId', async (req, res) => {
         return;
     }
 
-    res.render('pages/message', { pageTitle: message.text, links, message });
+    res.render('pages/message', { pageTitle: 'Message Details', links, message });
 });
 
 app.listen(PORT, (error) => {
