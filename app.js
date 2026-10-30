@@ -67,6 +67,10 @@ app.get('/message/:messageId', async (req, res) => {
     res.render('pages/message', { pageTitle: 'Message Details', links, message });
 });
 
+app.use((req, res) => {
+    res.status(404).render('pages/404', { pageTitle: '404' });
+})
+
 app.listen(PORT, (error) => {
     if (error) {
         throw error;
