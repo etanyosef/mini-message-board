@@ -30,9 +30,16 @@ footer {
     padding: 1rem 0;
 }
 
+.error-message {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
 .error-message > span {
     font-size: 5rem;
     color: red;
+    line-height: 0.5;
 
 }
 .error-message > h1 {
@@ -40,6 +47,17 @@ footer {
     padding: 0;
     margin: 0;
     line-height: 1;
+}
+.error-message > a {
+    padding: 1rem;
+    text-decoration: none;
+    background-color: crimson;
+    color: white;
+    border-radius: 6px;
+}
+.error-message > a:hover {
+    background-color: rgb(248, 24, 69);
+    box-shadow: 1px 1px 3px rgb(206, 206, 206);
 }
 
 main:has(.error-message) {
