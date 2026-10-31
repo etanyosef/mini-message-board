@@ -151,8 +151,8 @@ header .site-title a span {
 }
 
 .message-head > .date {
-    font-size: 0.9rem;
-    color: rgb(50, 50, 50);
+    font-size: 0.7rem;
+    color: rgb(115, 115, 115);
 }
 
 .message > .message-link {
