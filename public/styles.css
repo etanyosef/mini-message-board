@@ -30,6 +30,13 @@ footer {
     padding: 1rem 0;
 }
 
+main:has(.error-message) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
 .container {
     width: min(100% - 30px, 900px);
     margin: auto;
