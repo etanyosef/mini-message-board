@@ -60,7 +60,7 @@ app.get('/message/:messageId', async (req, res) => {
     const message = await getMessageById(messageId);
 
     if (!message) {
-        res.status(404).send('Message not found')
+        res.status(404).render('pages/404', { pageTitle: '404', links, errorMessage: 'Message not found' })
         return;
     }
 
@@ -68,7 +68,7 @@ app.get('/message/:messageId', async (req, res) => {
 });
 
 app.use((req, res) => {
-    res.status(404).render('pages/404', { pageTitle: '404' });
+    res.status(404).render('pages/404', { pageTitle: '404', links, errorMessage: 'Oops! Page not found. :(' });
 })
 
 app.listen(PORT, (error) => {
