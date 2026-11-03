@@ -1,4 +1,5 @@
 const { randomUUID } = require('node:crypto');
+const db = require('../db/queries');
 
 const links = [
     // { href: '/', text: 'Home' },
@@ -12,5 +13,9 @@ exports.getMessages = async (req, res) => {
         pageTitle: 'Messages',
         links,
         messages,
-    })
+    });
+}
+
+exports.newMessageGet = (req, res) => {
+    res.render('pages/form', { pageTitle: 'New Message', links } );
 }
