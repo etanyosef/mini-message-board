@@ -4,5 +4,7 @@ const messagesController = require('../controllers/messagesController');
 
 messagesRouter.get('/', messagesController.getMessages);
 messagesRouter.get('/new', messagesController.newMessageGet);
+messagesRouter.post('/new', messagesController.newMessagePost);
+messagesRouter.get('/message/:id', messagesController.getMessageById);
 
 module.exports = messagesRouter;
