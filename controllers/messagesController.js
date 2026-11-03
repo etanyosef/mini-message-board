@@ -5,22 +5,9 @@ const links = [
     { href: '/new', text: 'New Message' },
 ];
 
-const messages = [
-    {
-        id: randomUUID(),
-        text: "Hi there!",
-        user: "Sagi",
-        added: new Date()
-    },
-    {
-        id: randomUUID(),
-        text: "Hello World!",
-        user: "Nana",
-        added: new Date()
-    }
-];
-
-exports.getMessages = (req, res) => {
+exports.getMessages = async (req, res) => {
+    const messages = await db.getAllMessages();
+    console.log(messages);
     res.render('pages/index', {
         pageTitle: 'Messages',
         links,
