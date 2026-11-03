@@ -38,28 +38,20 @@ const links = [
 
 app.use('/', messagesRouter);
 
-app.post('/new', (req, res) => {
-    const messageText = req.body.messageText;
-    const messageUser = req.body.messageUser;
-    
-    messages.push({ id: randomUUID(), text: messageText, user: messageUser, added: new Date() });
-    res.redirect('/');
-});
+// app.get('/message/:messageId', async (req, res) => {
+//     const { messageId } = req.params;
 
-app.get('/message/:messageId', async (req, res) => {
-    const { messageId } = req.params;
+//     console.log(req.params)
 
-    console.log(req.params)
+//     const message = await getMessageById(messageId);
 
-    const message = await getMessageById(messageId);
+//     if (!message) {
+//         res.status(404).render('pages/404', { pageTitle: '404', links, errorMessage: 'Message not found' })
+//         return;
+//     }
 
-    if (!message) {
-        res.status(404).render('pages/404', { pageTitle: '404', links, errorMessage: 'Message not found' })
-        return;
-    }
-
-    res.render('pages/message', { pageTitle: 'Message Details', links, message });
-});
+//     res.render('pages/message', { pageTitle: 'Message Details', links, message });
+// });
 
 app.use((req, res) => {
     res.status(404).render('pages/404', { pageTitle: '404', links, errorMessage: 'Oops! Page not found. :(' });
