@@ -1,9 +1,9 @@
 const express = require('express');
+const app = express();
 const { randomUUID } = require('node:crypto');
 const path = require('node:path');
 
-const app = express();
-const PORT = 3000;
+const messagesRouter = require('./routes/messegesRouter');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -36,9 +36,7 @@ const links = [
     { href: '/new', text: 'New Message' },
 ]
 
-app.get('/', (req, res) => {
-    res.render('pages/index', { pageTitle: 'Messages', links, messages });
-});
+app.get('/', messagesRouter);
 
 app.get('/new', (req, res) => {
     res.render('pages/form', { pageTitle: 'New Message', links } );
@@ -71,6 +69,8 @@ app.use((req, res) => {
     res.status(404).render('pages/404', { pageTitle: '404', links, errorMessage: 'Oops! Page not found. :(' });
 })
 
+
+const PORT = 3000;
 app.listen(PORT, (error) => {
     if (error) {
         throw error;
