@@ -36,11 +36,7 @@ const links = [
     { href: '/new', text: 'New Message' },
 ]
 
-app.get('/', messagesRouter);
-
-app.get('/new', (req, res) => {
-    res.render('pages/form', { pageTitle: 'New Message', links } );
-});
+app.use('/', messagesRouter);
 
 app.post('/new', (req, res) => {
     const messageText = req.body.messageText;
