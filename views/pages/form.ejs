@@ -1,25 +1,19 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header'); %>
 
 <main>
     <div class="container">
         <h1><%= pageTitle %></h1>
 
-        <% if (locals.errors) { %>
-            <ul class="validation-errors">
-                <% errors.forEach(error => {%>
-                    <li><%= error.msg %></li>
-                <% }) %>
-            </ul>
-        <% } %>
-
         <form method="POST" action="/new">
             <label>
                 <span>User</span>
+                <%- include('../partials/validationErrors', { errors: locals.errors, path: 'username' }); %>
                 <input type="text" name="username" required>
             </label>
 
             <label>
                 <span>Message</span>
+                <%- include('../partials/validationErrors', { errors: locals.errors, path: 'text' }); %>
                 <textarea name="text" rows="5" required></textarea>
             </label>
 
