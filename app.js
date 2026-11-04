@@ -11,17 +11,11 @@ const assetsPath = path.join(__dirname, 'public');
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
-const links = [
-    // { href: '/', text: 'Home' },
-    { href: '/new', text: 'New Message' },
-]
-
 app.use('/', messagesRouter);
 
 app.use((req, res) => {
     res.status(404).render('pages/404', { 
         pageTitle: '404', 
-        links, 
         errorMessage: 'Oops! Page not found. :(' 
     });
 })
