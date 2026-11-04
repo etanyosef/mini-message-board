@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const { randomUUID } = require('node:crypto');
 const path = require('node:path');
 
 const messagesRouter = require('./routes/messegesRouter');
@@ -12,25 +11,6 @@ const assetsPath = path.join(__dirname, 'public');
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
-const messages = [
-    {
-        id: randomUUID(),
-        text: "Hi there!",
-        user: "Sagi",
-        added: new Date()
-    },
-    {
-        id: randomUUID(),
-        text: "Hello World!",
-        user: "Nana",
-        added: new Date()
-    }
-];
-
-async function getMessageById(messageId) {
-    return messages.find(message => message.id === messageId);
-}
-
 const links = [
     // { href: '/', text: 'Home' },
     { href: '/new', text: 'New Message' },
@@ -38,25 +18,13 @@ const links = [
 
 app.use('/', messagesRouter);
 
-// app.get('/message/:messageId', async (req, res) => {
-//     const { messageId } = req.params;
-
-//     console.log(req.params)
-
-//     const message = await getMessageById(messageId);
-
-//     if (!message) {
-//         res.status(404).render('pages/404', { pageTitle: '404', links, errorMessage: 'Message not found' })
-//         return;
-//     }
-
-//     res.render('pages/message', { pageTitle: 'Message Details', links, message });
-// });
-
 app.use((req, res) => {
-    res.status(404).render('pages/404', { pageTitle: '404', links, errorMessage: 'Oops! Page not found. :(' });
+    res.status(404).render('pages/404', { 
+        pageTitle: '404', 
+        links, 
+        errorMessage: 'Oops! Page not found. :(' 
+    });
 })
-
 
 const PORT = 3000;
 app.listen(PORT, (error) => {
