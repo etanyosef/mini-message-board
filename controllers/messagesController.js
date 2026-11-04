@@ -1,9 +1,24 @@
 const { randomUUID } = require('node:crypto');
 const db = require('../db/queries');
+const { body, params, validationResult, matchedData } = require('express-validator');
 
 const links = [
     // { href: '/', text: 'Home' },
     { href: '/new', text: 'New Message' },
+];
+
+const alphaErr = 'must only contain letters.';
+const userLengthErr = 'must be between 2 and 10 characters.';
+const messageLengthErr = 'must be between 2 and 200 characters.';
+
+
+const validateMessage = [
+    body('username').trim()
+        .isAlpha().withMessage(`Username ${alphaErr}`)
+        .isLength({ min: 2, max: 10 }).withMessage(`User ${userLengthErr}`)
+        .escape(),
+    body('text').trim()
+        .isLength({ min: 2, max: 200 }).withMessage(`Message text ${messageLengthErr}`)
 ];
 
 exports.getMessages = async (req, res) => {
