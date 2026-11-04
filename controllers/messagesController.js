@@ -35,8 +35,19 @@ exports.newMessageGet = (req, res) => {
     res.render('pages/form', { pageTitle: 'New Message', links } );
 }
 
-exports.newMessagePost = async (req, res) => {
-    const { username, text } = req.body;
+exports.newMessagePost = [
+    validateMessage,
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).render('pages/form', {
+                pageTitle: 'New Message',
+                links,
+                errors: errors.array(),
+            });
+        }
+
+        const { username, text } = matchedData(req);
     await db.createNewMessage(username, text);
     res.redirect('/');
 }
