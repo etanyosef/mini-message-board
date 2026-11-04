@@ -19,6 +19,7 @@ const validateMessage = [
         .escape(),
     body('text').trim()
         .isLength({ min: 2, max: 200 }).withMessage(`Message text ${messageLengthErr}`)
+        .escape(),
 ];
 
 exports.getMessages = async (req, res) => {
