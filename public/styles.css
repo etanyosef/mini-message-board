@@ -30,6 +30,15 @@ footer {
     padding: 1rem 0;
 }
 
+.validation-errors {
+    color: red;
+    list-style-type: '\2716  ';
+}
+.validation-errors li::marker {
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
 .error-message {
     display: flex;
     flex-direction: column;
